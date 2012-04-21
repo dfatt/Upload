@@ -27,20 +27,20 @@ class Upload extends CI_Controller {
    	$this->load->library('upload', $config);
 
    	foreach ($_FILES as $key => $value)
-       {
-          if (!$this->upload->do_upload($key))
-          {
-             // Если во время загрузки были ошибки, 
-             // их можно увидеть через метод $this->upload->display_errors();
-             print_r ($this->upload->display_errors());
-          }
-          else 
-          {
-             // Информация о загруженом файле можно увидеть через метод $this->upload->data();
-             print_r ($this->upload->data());
-          }
-       }
-    }
+      {
+         if (!$this->upload->do_upload($key))
+         {
+            // Если во время загрузки были ошибки, 
+            // их можно увидеть через метод $this->upload->display_errors();
+            print_r ($this->upload->display_errors());
+         }
+         else 
+         {
+            // Информация о загруженом файле можно увидеть через метод $this->upload->data();
+            print_r ($this->upload->data());
+         }
+      }
+   }
 }
 
 /* End of file post.php */
