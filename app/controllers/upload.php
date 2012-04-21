@@ -13,26 +13,26 @@ class Upload extends CI_Controller {
 	{
 	   $this->load->view('upload_files');
 	}
-	
-	public function add()
+
+   public function add()
    {	
       // Папка в корне проекта, обязательно установите прова на чтение и запись
-    	$config['upload_path'] = './uploads';
-    	$config['allowed_types'] = 'gif|jpg|png';
-   	$config['max_size']	= '10000';
+      $config['upload_path'] = './uploads';
+      $config['allowed_types'] = 'gif|jpg|png';
+      $config['max_size']	= '10000';
 
-   	// Менять название файла, выглядить как md5-хэш
-   	$config['encrypt_name']	= TRUE;
+      // Менять название файла, выглядить как md5-хэш
+      $config['encrypt_name']	= TRUE;
 
-   	$this->load->library('upload', $config);
+      $this->load->library('upload', $config);
 
-   	foreach ($_FILES as $key => $value)
+      foreach ($_FILES as $key => $value)
       {
          if (!$this->upload->do_upload($key))
          {
-            // Если во время загрузки были ошибки, 
-            // их можно увидеть через метод $this->upload->display_errors();
-            print_r ($this->upload->display_errors());
+         // Если во время загрузки были ошибки, 
+         // их можно увидеть через метод $this->upload->display_errors();
+         print_r ($this->upload->display_errors());
          }
          else 
          {
